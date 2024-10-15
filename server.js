@@ -10,6 +10,8 @@ const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_AUTH0_CLIENT_SECRET;
 
+const port = process.env.PORT || 3000;
+
 const corsOptions = {
     origin: 'http://localhost:3001', // Replace with your frontend URL
     optionsSuccessStatus: 200
@@ -129,8 +131,6 @@ app.get("/get-user-data", async (req, res) => {
     res.send(result);
 })
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000!")
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}!`)
 })
-
-// export default getAccessToken
