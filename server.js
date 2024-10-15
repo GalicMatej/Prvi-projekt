@@ -5,6 +5,8 @@ const QRCode = require('qrcode');
 const jwt = require("jsonwebtoken");
 const jwksRsa = require("jwks-rsa");
 const jwksClient = require("jwks-rsa");
+const path = require("path")
+
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -20,6 +22,7 @@ const corsOptions = {
 const app = express()
 app.use(express.json());
 app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, 'build')));
 
 const client = jwksClient({
     jwksUri: 'https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/.well-known/jwks.json'  // Auth0 JWKS URI
