@@ -10,9 +10,14 @@ const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_AUTH0_CLIENT_SECRET;
 
+const corsOptions = {
+    origin: 'http://localhost:3001', // Replace with your frontend URL
+    optionsSuccessStatus: 200
+};
+
 const app = express()
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const client = jwksClient({
     jwksUri: 'https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/.well-known/jwks.json'  // Auth0 JWKS URI
