@@ -61,7 +61,7 @@ function Generating() {
         };
     
         try {
-            const response = await fetch("http://localhost:3000/generate-new-user", {
+            const response = await fetch("https://backend-tyyf.onrender.com/generate-new-user", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ function Generating() {
             console.log("res",result);
             localStorage.setItem("userID", result[0].id)
 
-            const response2 = await fetch("http://localhost:3000/generate-qrcode", {
+            const response2 = await fetch("https://backend-tyyf.onrender.com/generate-qrcode", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
