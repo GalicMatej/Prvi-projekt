@@ -15,7 +15,7 @@ console.log(domain);
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
-    origin: 'http://localhost:3001', // Replace with your frontend URL
+    origin: ['http://localhost:3001', 'https://frontend-6ih3.onrender.com'], // Replace with your frontend URL
     optionsSuccessStatus: 200
 };
 

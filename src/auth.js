@@ -6,6 +6,7 @@ const clientIdM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_ID;
 const clientSecretM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_SECRET;
 
 const getToken = async () => {
+    console.log(domain)
     const response = await fetch(`https://${domain}/oauth/token`, {
         method: 'POST',
         headers: {
