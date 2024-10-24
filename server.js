@@ -7,7 +7,6 @@ const jwksRsa = require("jwks-rsa");
 const jwksClient = require("jwks-rsa");
 const path = require("path")
 
-
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_AUTH0_CLIENT_SECRET;
@@ -122,7 +121,7 @@ app.post("/get-token", async (req, res) => {
 
 app.get("/get-user-data", async (req, res) => {
     const id = req.query.id;
-    console.log(id)
+    // console.log(id)
     const getUserData = `SELECT * FROM PUBLIC.USERS WHERE ID = $1`;
 
     const result = await query(getUserData, [id]);

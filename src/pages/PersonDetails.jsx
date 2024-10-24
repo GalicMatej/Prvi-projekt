@@ -117,15 +117,10 @@ function PersonDetails() {
     //     fetchUserData();
     // }, [id])
 
-    // If authenticated, display user information
     if (isAuthenticated && user) {
         return (
             <StyledDiv>
                 <h1>Personal info</h1>
-                {/* <p>First Name: {user.given_name}</p>
-                <p>Last Name: {user.family_name}</p>
-                <p>Email: {user.email}</p>
-                <p>Nickname: {user.nickname}</p> */}
                 <h2>OIB: {OIB}</h2>
                 <h2>First name: {firstName}</h2>
                 <h2>Last name: {lastName}</h2>

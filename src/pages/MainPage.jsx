@@ -38,10 +38,10 @@ const StyledButton = styled.button`
 
 function MainPage() {
     const [number, setNumber] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     // const [showAdd, setShowAdd] = useState(false)
     const [token, setToken] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     // localStorage.setItem("userID", null);
 
@@ -68,7 +68,7 @@ function MainPage() {
             if(!token) return;
             try {
                 setLoading(true);
-                const response = await fetch("https://backend-tyyf.onrender.com/get-all-users", {
+                const response = await fetch("http://localhost:3000/get-all-users", {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',
@@ -84,6 +84,7 @@ function MainPage() {
     
                 const result = await response.json(); 
                 setNumber(result[0].count);
+                setLoading(false);
                 console.log(result)
 
             }
@@ -92,7 +93,6 @@ function MainPage() {
             }
         };
         fetchNumberOfTickets();
-        setLoading(false)
     }, [token]); 
 
     return (
