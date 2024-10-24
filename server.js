@@ -63,6 +63,10 @@ function checkJwt(req, res, next) {
     });
 }
 
+app.get("/", (req, res) => {
+    res.status(200).send("Start");
+});
+
 app.get('/get-all-users', checkJwt, async (req, res) => {
     const countAll = `SELECT COUNT (*) from public.users;`;
 
