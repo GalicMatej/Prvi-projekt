@@ -90,7 +90,7 @@ function Generating() {
 
             const result2 = await response2.json();
             setQrcodeUrl(result2.qrcodeUrl)
-            console.log(result2);
+            console.log(result2.qrcodeUrl);
     
         } catch (error) {
             console.error("Error:", error);

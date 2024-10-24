@@ -71,7 +71,6 @@ app.get("/", (req, res) => {
 });
 
 app.get('/get-all-users', checkJwt, async (req, res) => {
-    console.log('TU sam')
     const countAll = `SELECT COUNT (*) from public.users;`;
 
     const result = await query(countAll, []);
@@ -111,10 +110,10 @@ app.post("/generate-qrcode", async (req, res) => {
 
     const qrcodetemp = `https://frontend-6ih3.onrender.com/user/${id}`; 
     // PRAVI KOJI RADI
-    // const qrcodetemp = "http://localhost:3001/callback";
+    // const qrcodetemp = `http://localhost:3001/user/${id}`;
 
     const qrcodeUrl = await QRCode.toDataURL(qrcodetemp);
-    // console.log(qrcodeUrl);
+    console.log(qrcodeUrl);
     res.json({qrcodeUrl});
 })
 
