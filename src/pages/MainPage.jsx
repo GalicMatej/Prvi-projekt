@@ -54,9 +54,21 @@ function MainPage() {
     useEffect(() => {
         const fetchToken = async () => {
             try {
-                const fetchedToken = await getToken();
-                setToken(fetchedToken);
-                console.log(fetchedToken);
+                const response = await fetch("http://localhost:3000/get-token", {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                // const fetchedToken = await getToken();
+                // console.log(fetchedToken);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                setToken(result.access_token);
             } catch (error) {
                 console.log("Error while fetching token!!!");
             }

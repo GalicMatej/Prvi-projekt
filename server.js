@@ -5,13 +5,15 @@ const QRCode = require('qrcode');
 const jwt = require("jsonwebtoken");
 const jwksRsa = require("jwks-rsa");
 const jwksClient = require("jwks-rsa");
-const path = require("path")
+const path = require("path");
+const { lchown } = require("fs");
 require('dotenv').config();
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_AUTH0_CLIENT_SECRET;
-console.log(domain);
+const clientIdM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_ID;
+const clientSecretM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_SECRET;
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
@@ -115,13 +117,27 @@ app.post("/generate-qrcode", async (req, res) => {
     res.json({qrcodeUrl});
 })
 
-app.post("/get-token", async (req, res) => {
-    try {
-        const token = await getAccessToken();
-        res.json({ access_token: token });
-    } catch (error) {
-        res.status(500).send("Error fetching access token");
+app.get("/get-token", async (req, res) => {
+    const response = await fetch(`https://${domain}/oauth/token`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            grant_type: 'client_credentials',
+            client_id: `${clientIdM2M}`,  // ID tvoje M2M aplikacije
+            client_secret: `${clientSecretM2M}`,  // Tajni ključ tvoje M2M aplikacije
+            audience: "http://localhost:3000",  // Identifikator API-ja
+        }),
+    })
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(`Error fetching access token: ${errorData.error_description}`);
     }
+
+    const data = await response.json();
+    res.send(data)
 })
 
 app.get("/get-user-data", async (req, res) => {
