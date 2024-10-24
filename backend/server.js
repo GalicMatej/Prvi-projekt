@@ -6,11 +6,12 @@ const jwt = require("jsonwebtoken");
 const jwksRsa = require("jwks-rsa");
 const jwksClient = require("jwks-rsa");
 const path = require("path")
+require('dotenv').config();
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 const clientSecret = process.env.REACT_APP_AUTH0_CLIENT_SECRET;
-
+console.log(domain);
 const port = process.env.PORT || 3000;
 
 const corsOptions = {
@@ -24,7 +25,7 @@ app.use(cors(corsOptions));
 app.use(express.static(path.join(__dirname, 'build')));
 
 const client = jwksClient({
-    jwksUri: 'https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/.well-known/jwks.json'  // Auth0 JWKS URI
+    jwksUri: `https://${domain}/.well-known/jwks.json`  // Auth0 JWKS URI
 });
 
 // Function to retrieve signing key from Auth0
@@ -49,7 +50,7 @@ function checkJwt(req, res, next) {
     // Verify the JWT
     jwt.verify(token, getKey, {
         audience: "http://localhost:3000",  // Replace with your API audience from Auth0
-        issuer: 'https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/',  // Your Auth0 domain
+        issuer: `https://${domain}/`,  // Your Auth0 domain
         algorithms: ['RS256']
     }, (err, decoded) => {
         if (err) {

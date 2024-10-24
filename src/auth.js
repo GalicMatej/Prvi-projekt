@@ -29,20 +29,3 @@ const getToken = async () => {
 };
 
 export default getToken;
-
-// var request = require("request");
-
-// var options = { method: 'POST',
-//   url: 'https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/oauth/token',
-//   headers: { 'content-type': 'application/json' },
-//   body: JSON.stringify({ 
-//     client_id:"WgqdiAqNgllK4rh38ZpwgcKshlalKM8y",
-//     client_secret:"SyjY5d4_CMmZxtZ_DvNCSxbza7SJF21-_VufPpD51Z489dCbZ6sZfEBK9dy1Ihn3",
-//     audience:"https://dev-iuycdx4u3t0yxzb5.eu.auth0.com/api/v2/",
-//     grant_type:"client_credentials"}) };
-
-// request(options, function (error, response, body) {
-//   if (error) throw new Error(error);
-
-//   console.log(body);
-// });

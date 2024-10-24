@@ -68,7 +68,7 @@ function MainPage() {
             if(!token) return;
             try {
                 setLoading(true);
-                const response = await fetch("https://backend-tyyf.onrender.com/get-all-users", {
+                const response = await fetch("http://localhost:3000/get-all-users", {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',

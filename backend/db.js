@@ -27,12 +27,3 @@ const query = async (text, params) => {
 module.exports = {
     query,
 };
-
-// postgresql://qr_code_database_rus3_user:IAJh45j5lXdgsFfao32ftPiZRNdu4aMV@dpg-cs2mfol6l47c73blcr6g-a.frankfurt-postgres.render.com/qr_code_database_rus3
-
-// PGPASSWORD=IAJh45j5lXdgsFfao32ftPiZRNdu4aMV psql -h dpg-cs2mfol6l47c73blcr6g-a.frankfurt-postgres.render.com -U qr_code_database_rus3_user qr_code_database_rus3
-
-// password = IAJh45j5lXdgsFfao32ftPiZRNdu4aMV
-// host = dpg-cs2mfol6l47c73blcr6g-a.frankfurt-postgres.render.com
-// user = qr_code_database_rus3_user
-// database = qr_code_database_rus3
