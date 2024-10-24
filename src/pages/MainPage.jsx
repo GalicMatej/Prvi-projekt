@@ -54,7 +54,7 @@ function MainPage() {
     useEffect(() => {
         const fetchToken = async () => {
             try {
-                const response = await fetch("http://localhost:3000/get-token", {
+                const response = await fetch("https://backend-tyyf.onrender.com/get-token", {
                     method: "GET",
                     headers: {
                         'Content-Type': 'application/json',

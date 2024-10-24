@@ -137,6 +137,7 @@ app.get("/get-token", async (req, res) => {
     }
 
     const data = await response.json();
+    console.log("data:", data)
     res.send(data)
 })
 
