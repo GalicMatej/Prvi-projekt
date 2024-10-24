@@ -69,6 +69,7 @@ function MainPage() {
                 
                 const result = await response.json();
                 setToken(result.access_token);
+                console.log(result.access_token)
             } catch (error) {
                 console.log("Error while fetching token!!!");
             }

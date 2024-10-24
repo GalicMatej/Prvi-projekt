@@ -51,7 +51,7 @@ function checkJwt(req, res, next) {
 
     // Verify the JWT
     jwt.verify(token, getKey, {
-        audience: "http://localhost:3000",  // Replace with your API audience from Auth0
+        audience: "https://backend-tyyf.onrender.com",  // Replace with your API audience from Auth0
         issuer: `https://${domain}/`,  // Your Auth0 domain
         algorithms: ['RS256']
     }, (err, decoded) => {
@@ -71,6 +71,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/get-all-users', checkJwt, async (req, res) => {
+    console.log('TU sam')
     const countAll = `SELECT COUNT (*) from public.users;`;
 
     const result = await query(countAll, []);
