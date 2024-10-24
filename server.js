@@ -109,7 +109,7 @@ app.post("/generate-qrcode", async (req, res) => {
     const {id} = req.body;
     // console.log(id);
 
-    const qrcodetemp = `http://localhost:3001/user/${id}`; 
+    const qrcodetemp = `https://frontend-6ih3.onrender.com/user/${id}`; 
     // PRAVI KOJI RADI
     // const qrcodetemp = "http://localhost:3001/callback";
 
