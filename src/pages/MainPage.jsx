@@ -49,7 +49,7 @@ function MainPage() {
         navigate("/generateQrCode", {state: {data: token}})
     };
 
-    // console.log(process.env.REACT_APP_AUTH0_DOMAIN);
+    // console.log(window.location.origin);
 
     useEffect(() => {
         const fetchToken = async () => {

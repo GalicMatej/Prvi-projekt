@@ -7,7 +7,7 @@ function Callback() {
     const navigate = useNavigate();
     
     const userID = localStorage.getItem("userID");
-    console.log(userID)
+    // console.log(userID)
 
     useEffect(() => {
         if (!isAuthenticated && !isLoading) {
