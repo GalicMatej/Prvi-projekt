@@ -10,7 +10,6 @@ function Callback() {
     // console.log(userID)
 
     useEffect(() => {
-        // Redirect to login if not authenticated and not loading
         if (!isAuthenticated && !isLoading) {
             loginWithRedirect();
         }else if(isAuthenticated && userID) {
