@@ -34,11 +34,11 @@ function PersonDetails() {
 
     useEffect(() => {
         // Redirect to login if not authenticated and not loading
-        // if (!isAuthenticated && !isLoading) {
-        //     loginWithRedirect();
+        if (!isAuthenticated && !isLoading) {
+            loginWithRedirect();
         // }else if(isAuthenticated && userID) {
         //     navigate(`/user/${userID}`)
-        // }else {
+        }else {
             const fetchUserData = async () => {
                 try {
                     const response = await fetch(`https://backend-tyyf.onrender.com/get-user-data?id=${userID}`, {
@@ -68,7 +68,7 @@ function PersonDetails() {
                 }
             }
             fetchUserData();
-        // }
+        }
 
     }, [loginWithRedirect, isAuthenticated, isLoading, navigate, userID]);
 
