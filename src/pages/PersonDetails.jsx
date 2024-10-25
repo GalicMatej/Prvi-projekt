@@ -24,7 +24,6 @@ const StyledButton = styled.button`
 function PersonDetails() {
     const { loginWithRedirect, isAuthenticated, isLoading, user, logout } = useAuth0();
     const navigate = useNavigate();
-    console.log('HERE I AM')
     const userID = localStorage.getItem("userID");
     // console.log(userID)
 
@@ -42,7 +41,7 @@ function PersonDetails() {
         }else {
             const fetchUserData = async () => {
                 try {
-                    const response = await fetch(`http://localhost:3000/get-user-data?id=${userID}`, {
+                    const response = await fetch(`https://backend-tyyf.onrender.com/get-user-data?id=${userID}`, {
                         method: "GET",
                         headers: {
                             'Content-Type': 'application/json'
