@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 
@@ -31,6 +31,14 @@ function PersonDetails() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [createdAt, setCreatedAt] = useState("");
+
+    const temp = useParams();
+    console.log("temp:", temp)
+
+    const handleClick = () => {
+        localStorage.setItem("userID", null);
+        logout({ returnTo: window.location.origin })
+    }
 
     useEffect(() => {
         // Redirect to login if not authenticated and not loading
@@ -125,7 +133,7 @@ function PersonDetails() {
                 <h2>Last name: {lastName}</h2>
                 <h2>Logged user: {user.name}</h2>
                 <h2>Time of creation: {createdAt}</h2>
-                <StyledButton onClick={() => logout({ returnTo: window.location.origin })}>
+                <StyledButton onClick={handleClick}>
                     Logout
                 </StyledButton>
             </StyledDiv>
@@ -136,3 +144,5 @@ function PersonDetails() {
 }
 
 export default PersonDetails;
+
+// () => logout({ returnTo: window.location.origin })
