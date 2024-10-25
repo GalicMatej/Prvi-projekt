@@ -24,7 +24,7 @@ const StyledButton = styled.button`
 function PersonDetails() {
     const { loginWithRedirect, isAuthenticated, isLoading, user, logout } = useAuth0();
     const navigate = useNavigate();
-    
+    console.log('HERE I AM')
     const userID = localStorage.getItem("userID");
     // console.log(userID)
 

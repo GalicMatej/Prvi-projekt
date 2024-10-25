@@ -17,7 +17,7 @@ function App() {
           <Route path='generateQrCode' element={<Generating />} />
         </Route>
           <Route path='callback' element={<Callback />} />
-          <Route path='user/:id' element={<PersonDetails />} />
+          <Route path='user/*' element={<PersonDetails />} />
       </Routes>
     </BrowserRouter>
   );
