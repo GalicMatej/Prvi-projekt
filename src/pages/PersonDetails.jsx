@@ -36,8 +36,8 @@ function PersonDetails() {
         // Redirect to login if not authenticated and not loading
         if (!isAuthenticated && !isLoading) {
             loginWithRedirect();
-        // }else if(isAuthenticated && userID) {
-        //     navigate(`/user/${userID}`)
+        }else if(isAuthenticated && userID) {
+            navigate(`/user/${userID}`)
         }else {
             const fetchUserData = async () => {
                 try {
