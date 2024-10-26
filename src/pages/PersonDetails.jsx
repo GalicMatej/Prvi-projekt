@@ -24,7 +24,7 @@ const StyledButton = styled.button`
 function PersonDetails() {
     const { loginWithRedirect, isAuthenticated, isLoading, user, logout } = useAuth0();
     const navigate = useNavigate();
-    const userID = localStorage.getItem("userID");
+    // const userID = localStorage.getItem("userID");
     // console.log(userID)
 
     const [OIB, setOIB] = useState(null);
@@ -45,12 +45,13 @@ function PersonDetails() {
         if (!isAuthenticated && !isLoading) {
             localStorage.setItem("userID", temp);
             loginWithRedirect();
-        }else if(isAuthenticated && userID) {
-            navigate(`/user/${userID}`)
+        // }
+        // else if(isAuthenticated && userID) {
+        //     navigate(`/user/${userID}`)
         }else {
             const fetchUserData = async () => {
                 try {
-                    const response = await fetch(`https://backend-tyyf.onrender.com/get-user-data?id=${userID}`, {
+                    const response = await fetch(`https://backend-tyyf.onrender.com/get-user-data?id=${temp}`, {
                         method: "GET",
                         headers: {
                             'Content-Type': 'application/json'
@@ -79,7 +80,7 @@ function PersonDetails() {
             fetchUserData();
         }
 
-    }, [loginWithRedirect, isAuthenticated, isLoading, navigate, userID]);
+    }, [loginWithRedirect, isAuthenticated, isLoading, navigate, temp]);
 
     // Show loading state while Auth0 is checking authentication
     if (isLoading) {
