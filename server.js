@@ -112,6 +112,7 @@ app.post("/generate-new-user", checkJwt, async (req, res) => {
 
 app.post("/generate-qrcode", async (req, res) => {
     const {id} = req.body;
+    const link = `https://frontend-6ih3.onrender.com/user/${id}`;
     // console.log(id);
 
     // const qrcodetemp = `https://frontend-6ih3.onrender.com/callback`;
@@ -121,7 +122,7 @@ app.post("/generate-qrcode", async (req, res) => {
 
     const qrcodeUrl = await QRCode.toDataURL(qrcodetemp);
     // console.log(qrcodeUrl);
-    res.json({qrcodeUrl});
+    res.json({qrcodeUrl: qrcodeUrl, link: link});
 })
 
 app.get("/get-token", async (req, res) => {

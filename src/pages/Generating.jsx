@@ -42,6 +42,7 @@ function Generating() {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [qrcodeUrl, setQrcodeUrl] = useState("");
+    const [link, setLink] = useState(null);
     // const [token, setToken] = useState("");
 
    const location = useLocation();
@@ -89,7 +90,8 @@ function Generating() {
             });
 
             const result2 = await response2.json();
-            setQrcodeUrl(result2.qrcodeUrl)
+            setQrcodeUrl(result2.qrcodeUrl);
+            setLink(result2.link);
             // console.log(result2.qrcodeUrl);
     
         } catch (error) {
@@ -111,6 +113,7 @@ function Generating() {
                     <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>
                 </Link>)} */}
             {qrcodeUrl && <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>}
+            {link && <a href={link}>Person details</a>}
         </StyledDiv>
     )
 }
