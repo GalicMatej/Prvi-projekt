@@ -113,7 +113,7 @@ function Generating() {
                     <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>
                 </Link>)} */}
             {qrcodeUrl && <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>}
-            {link && <a href={link} style={{color: "black"}}>Person details</a>}
+            {link && <a href={link} style={{color: "black"}}>Personal info</a>}
         </StyledDiv>
     )
 }
