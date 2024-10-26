@@ -1,10 +1,5 @@
 require('dotenv').config();
 
-const user = process.env.USER;
-const host = process.env.HOST;
-const database = process.env.DATABASE;
-const password = process.env.PASSWORD;
-
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -12,7 +7,7 @@ const pool = new Pool({
     host: process.env.HOST,             // Usually 'localhost' or the Render host URL
     database: process.env.DATABASE,     // The name of your database
     password: process.env.PASSWORD,     // Your PostgreSQL password
-    port: 5432,                    // Default PostgreSQL port
+    port: process.env.DB_PORT,                    // Default PostgreSQL port
     ssl: {
         rejectUnauthorized: false,                // This option can be used in development but should be handled differently in production
     },
