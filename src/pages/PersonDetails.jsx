@@ -32,8 +32,8 @@ function PersonDetails() {
     const [lastName, setLastName] = useState("");
     const [createdAt, setCreatedAt] = useState("");
 
-    const {id} = useParams();
-    console.log("id:", id)
+    const temp = useParams();
+    console.log("temp:", temp)
 
     const handleClick = () => {
         localStorage.setItem("userID", null);
