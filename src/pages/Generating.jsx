@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
     justify-content: center;
     align-items: center;
     background-color: blue;
-    height: 550px;
+    height: 580px;
     /* width: 300px; */
     border-radius: 10px;
 `;
@@ -113,7 +113,7 @@ function Generating() {
                     <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>
                 </Link>)} */}
             {qrcodeUrl && <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>}
-            {link && <a href={link}>Person details</a>}
+            {link && <a href={link} style={{color: "black"}}>Person details</a>}
         </StyledDiv>
     )
 }
