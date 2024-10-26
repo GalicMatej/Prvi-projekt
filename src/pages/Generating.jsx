@@ -46,23 +46,18 @@ function Generating() {
     // const [token, setToken] = useState("");
 
     const location = useLocation();
-//    const location = useLocation().state?.data;
-//    if(!location.state.data) {
-//     console.log('EVO me')
-//    }
-//    const token = location.state.data;
-    const token = null
+    const token = location.state.data;
 
-   useEffect(() => {
-        // Provjerite je li token poslan u `state`
-        if (location.state && location.state.data) {
-            token = location.state.data;
-            console.log("Token received:", token);
-            // Nastavite s obradom tokena
-        } else {
-            console.log("Token not found, redirecting...");
-        }
-    }, [location]);
+//    useEffect(() => {
+//         // Provjerite je li token poslan u `state`
+//         if (location.state && location.state.data) {
+//             token = location.state.data;
+//             console.log("Token received:", token);
+//             // Nastavite s obradom tokena
+//         } else {
+//             console.log("Token not found, redirecting...");
+//         }
+//     }, [location]);
 
     async function handleSubmit(e) {
         e.preventDefault();
