@@ -45,6 +45,7 @@ function Generating() {
     const [link, setLink] = useState(null);
     // const [token, setToken] = useState("");
 
+    const location = useLocation();
 //    const location = useLocation().state?.data;
 //    if(!location.state.data) {
 //     console.log('EVO me')
