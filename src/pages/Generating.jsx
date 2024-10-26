@@ -45,15 +45,22 @@ function Generating() {
     const [link, setLink] = useState(null);
     // const [token, setToken] = useState("");
 
-   const location = useLocation();
+   const location = useLocation().state?.data;
    if(!location.state.data) {
     console.log('EVO me')
    }
    const token = location.state.data;
-//    console.log("Token: ", token);
 
-    // localStorage.setItem("userID", null);
-    // console.log(localStorage.getItem("userID"))
+   useEffect(() => {
+        // Provjerite je li token poslan u `state`
+        if (location.state && location.state.data) {
+            const token = location.state.data;
+            console.log("Token received:", token);
+            // Nastavite s obradom tokena
+        } else {
+            console.log("Token not found, redirecting...");
+        }
+    }, [location]);
 
     async function handleSubmit(e) {
         e.preventDefault();
