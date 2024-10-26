@@ -51,11 +51,12 @@ function Generating() {
 //     console.log('EVO me')
 //    }
 //    const token = location.state.data;
+    const token = null
 
    useEffect(() => {
         // Provjerite je li token poslan u `state`
         if (location.state && location.state.data) {
-            const token = location.state.data;
+            token = location.state.data;
             console.log("Token received:", token);
             // Nastavite s obradom tokena
         } else {
