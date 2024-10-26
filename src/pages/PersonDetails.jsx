@@ -32,7 +32,7 @@ function PersonDetails() {
     const [lastName, setLastName] = useState("");
     const [createdAt, setCreatedAt] = useState("");
 
-    const temp = useParams();
+    const temp = useParams().id;
     console.log("temp:", temp)
 
     const handleClick = () => {
@@ -43,6 +43,7 @@ function PersonDetails() {
     useEffect(() => {
         // Redirect to login if not authenticated and not loading
         if (!isAuthenticated && !isLoading) {
+            localStorage.setItem("userID", temp);
             loginWithRedirect();
         }else if(isAuthenticated && userID) {
             navigate(`/user/${userID}`)
