@@ -16,9 +16,15 @@ const clientIdM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_ID;
 const clientSecretM2M = process.env.REACT_APP_AUTH0_M2M_CLIENT_SECRET;
 const port = process.env.PORT || 3000;
 
+// const corsOptions = {
+//     origin: ['https://frontend-6ih3.onrender.com'], // Replace with your frontend URL
+//     optionsSuccessStatus: 200
+// };
+
 const corsOptions = {
-    origin: ['http://localhost:3001', 'https://frontend-6ih3.onrender.com'], // Replace with your frontend URL
-    optionsSuccessStatus: 200
+    origin: 'https://frontend-6ih3.onrender.com',
+    methods: ['GET', 'POST', 'OPTIONS'], // Add any other methods you need
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add necessary headers
 };
 
 const app = express()
