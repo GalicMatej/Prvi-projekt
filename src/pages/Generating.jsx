@@ -46,6 +46,9 @@ function Generating() {
     // const [token, setToken] = useState("");
 
    const location = useLocation();
+   if(!location) {
+    console.log('EVO me')
+   }
    const token = location.state.data;
 //    console.log("Token: ", token);
 
