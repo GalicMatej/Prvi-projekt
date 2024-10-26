@@ -135,7 +135,7 @@ app.get("/get-token", async (req, res) => {
             grant_type: 'client_credentials',
             client_id: `${clientIdM2M}`,  // ID tvoje M2M aplikacije
             client_secret: `${clientSecretM2M}`,  // Tajni ključ tvoje M2M aplikacije
-            audience: "https://backend-tyyf.onrender.com",  // Identifikator API-ja
+            audience: process.env.AUDIENCE,  // Identifikator API-ja
         }),
     })
 
