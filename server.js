@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/get-all-users', checkJwt, async (req, res) => {
-    const countAll = `SELECT COUNT (*) from public.users;`;
+    const countAll = `SELECT COUNT (*) from public.database;`;
 
     const result = await query(countAll, []);
         
@@ -91,7 +91,7 @@ app.post("/generate-new-user", checkJwt, async (req, res) => {
         return res.status(400).send({error: "All of the fields must be filled!!!"});
     }
 
-    const selectUser = `SELECT * FROM public.users WHERE OIB = $1;`;
+    const selectUser = `SELECT * FROM public.database WHERE OIB = $1;`;
     const temp = await query(selectUser, [OIB]);
     // console.log("temp: ", temp);
 
@@ -100,7 +100,7 @@ app.post("/generate-new-user", checkJwt, async (req, res) => {
     }
 
     // Insert the new user into the database
-    const insertUser = `INSERT INTO public.users (OIB, first_name, last_name)
+    const insertUser = `INSERT INTO public.database (OIB, first_name, last_name)
                         VALUES ($1, $2, $3)
                         RETURNING *;`;
 
@@ -152,7 +152,7 @@ app.get("/get-token", async (req, res) => {
 app.get("/get-user-data", async (req, res) => {
     const id = req.query.id;
     // console.log(id)
-    const getUserData = `SELECT * FROM PUBLIC.USERS WHERE ID = $1`;
+    const getUserData = `SELECT * FROM PUBLIC.database WHERE ID = $1`;
 
     const result = await query(getUserData, [id]);
     if(result == null) {
