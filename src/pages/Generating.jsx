@@ -45,11 +45,11 @@ function Generating() {
     const [link, setLink] = useState(null);
     // const [token, setToken] = useState("");
 
-   const location = useLocation().state?.data;
-   if(!location.state.data) {
-    console.log('EVO me')
-   }
-   const token = location.state.data;
+//    const location = useLocation().state?.data;
+//    if(!location.state.data) {
+//     console.log('EVO me')
+//    }
+//    const token = location.state.data;
 
    useEffect(() => {
         // Provjerite je li token poslan u `state`
