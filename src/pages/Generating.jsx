@@ -47,10 +47,12 @@ function Generating() {
 
     const location = useLocation();
     // const token = location.state?.data;
-    setToken(location.state?.data);
+    // setToken(location.state?.data);
 
-    if(!token) {
-        useEffect(() => {
+    useEffect(() => {
+        if(location.state?.data) {
+            setToken(location.state.data);
+        } else {
             const fetchToken = async () => {
                 try {
                     const response = await fetch("https://backend-tyyf.onrender.com/get-token", {
@@ -59,8 +61,6 @@ function Generating() {
                             'Content-Type': 'application/json',
                         },
                     });
-                    // const fetchedToken = await getToken();
-                    // console.log(fetchedToken);
                     
                     if (!response.ok) {
                         throw new Error(`HTTP error! status: ${response.status}`);
@@ -68,14 +68,13 @@ function Generating() {
                     
                     const result = await response.json();
                     setToken(result.access_token);
-                    // console.log(result.access_token)
                 } catch (error) {
                     console.log("Error while fetching token!!!");
                 }
             }
             fetchToken();
-        }, []);
-    }
+        }
+    }, [location.state]);
 
 //    useEffect(() => {
 //         // Provjerite je li token poslan u `state`
