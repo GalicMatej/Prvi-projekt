@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import Header from "./Header";
-// import MainPage from "../pages/MainPage";
 import { Outlet } from "react-router-dom";
 
 const StyledAppLayout = styled.div`
@@ -14,7 +13,6 @@ const Main = styled.main`
     padding-top: 100px;
     padding-left: 150px;
     padding-right: 150px;
-    /* overflow-y: auto; */
 `;
 
 function AppLayout() {

@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-// import CreateTicketForm from "../ui/CreateTicketForm";
 import { useNavigate } from "react-router-dom";
-import getToken from "../auth";
-// import getAccessToken from "../../server";
 
 const StyledDiv = styled.div`
     display: flex;
@@ -29,7 +26,6 @@ const StyledButton = styled.button`
     border-radius: 15%;
     border: none;
     text-align: center;
-    /* align-items: center; */
 
     &:hover{
         background-color: #4338ca;
@@ -39,17 +35,12 @@ const StyledButton = styled.button`
 function MainPage() {
     const [number, setNumber] = useState(0);
     const [loading, setLoading] = useState(true);
-    // const [showAdd, setShowAdd] = useState(false)
     const [token, setToken] = useState("");
     const navigate = useNavigate();
-
-    // localStorage.setItem("userID", null);
 
     function handleClick() {
         navigate("/generateQrCode", {state: {data: token}})
     };
-
-    // console.log(window.location.origin);
 
     useEffect(() => {
         const fetchToken = async () => {
@@ -60,8 +51,6 @@ function MainPage() {
                         'Content-Type': 'application/json',
                     },
                 });
-                // const fetchedToken = await getToken();
-                // console.log(fetchedToken);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -69,7 +58,6 @@ function MainPage() {
                 
                 const result = await response.json();
                 setToken(result.access_token);
-                // console.log(result.access_token)
             } catch (error) {
                 console.log("Error while fetching token!!!");
             }
@@ -90,8 +78,6 @@ function MainPage() {
                         'Authorization': `Bearer ${token}`
                     },
                 });
-                // console.log("Response:" + response.status);
-                // console.log(response.ok)
     
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -100,7 +86,6 @@ function MainPage() {
                 const result = await response.json(); 
                 setNumber(result[0].count);
                 setLoading(false);
-                // console.log(result)
 
             }
             catch (error) {

@@ -14,9 +14,9 @@ const getToken = async () => {
         },
         body: JSON.stringify({
             grant_type: 'client_credentials',
-            client_id: `${clientIdM2M}`,  // ID tvoje M2M aplikacije
-            client_secret: `${clientSecretM2M}`,  // Tajni ključ tvoje M2M aplikacije
-            audience: "http://localhost:3000",  // Identifikator API-ja
+            client_id: `${clientIdM2M}`,  
+            client_secret: `${clientSecretM2M}`,  
+            audience: "http://localhost:3000",  
         }),
     })
 

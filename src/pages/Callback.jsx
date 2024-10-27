@@ -7,7 +7,6 @@ function Callback() {
     const navigate = useNavigate();
     
     const userID = localStorage.getItem("userID");
-    // console.log(userID)
 
     useEffect(() => {
         if (!isAuthenticated && !isLoading) {
@@ -17,7 +16,6 @@ function Callback() {
         }
     }, [loginWithRedirect, isAuthenticated, isLoading, navigate, userID, user]);
 
-    // Show loading state while Auth0 is checking authentication
     if (isLoading) {
         return <div>Loading...</div>;
     }

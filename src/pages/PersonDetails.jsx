@@ -31,7 +31,6 @@ const StyledButton = styled.button`
     border-radius: 10%;
     border: none;
     text-align: center;
-    /* align-items: center; */
 
     &:hover{
         background-color: #4338ca;
@@ -41,8 +40,6 @@ const StyledButton = styled.button`
 function PersonDetails() {
     const { loginWithRedirect, isAuthenticated, isLoading, user, logout } = useAuth0();
     const navigate = useNavigate();
-    // const userID = localStorage.getItem("userID");
-    // console.log(userID)
 
     const [OIB, setOIB] = useState(null);
     const [firstName, setFirstName] = useState("");
@@ -58,7 +55,6 @@ function PersonDetails() {
     }
 
     useEffect(() => {
-        // Redirect to login if not authenticated and not loading
         if (!isAuthenticated && !isLoading) {
             localStorage.setItem("userID", temp);
             loginWithRedirect();
@@ -99,49 +95,9 @@ function PersonDetails() {
 
     }, [loginWithRedirect, isAuthenticated, isLoading, navigate, temp]);
 
-    // Show loading state while Auth0 is checking authentication
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
-    // const location = useLocation();
-    // // console.log(location.state.user.given_name);
-
-    // const data = useParams();
-    // const id = data.id;
-    // // console.log(data.id)
-
-    // useEffect(() => {
-    //     const fetchUserData = async () => {
-    //         try {
-    //             const response = await fetch(`http://localhost:3000/get-user-data?id=${id}`, {
-    //                 method: "GET",
-    //                 headers: {
-    //                     'Content-Type': 'application/json'
-    //                 }
-    //             });
-
-    //             if(!response.ok) {
-    //                 throw new Error(`HTTP error! status: ${response.status}`);
-    //             }
-
-    //             const result = await response.json();
-    //             console.log(result)
-    //             setOIB(result[0].oib);
-    //             setFirstName(result[0].first_name);
-    //             setLastName(result[0].last_name);
-
-    //             const tempDate = result[0].created_at;
-    //             const date = new Date(tempDate);
-    //             const formattedDate = date.toLocaleString();
-    //             setCreatedAt(formattedDate);
-                
-    //         } catch (error) {
-    //             console.log("Error fetching user data:", error);
-    //         }
-    //     }
-    //     fetchUserData();
-    // }, [id])
 
     if (isAuthenticated && user) {
         return (
@@ -163,5 +119,3 @@ function PersonDetails() {
 }
 
 export default PersonDetails;
-
-// () => logout({ returnTo: window.location.origin })

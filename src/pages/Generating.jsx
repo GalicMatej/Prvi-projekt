@@ -20,11 +20,11 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
-    margin-bottom: 15px; /* Space between input fields */
-    padding: 15px; /* Padding inside input */
-    border: 1px solid #ccc; /* Border for input */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size for input text */
+    margin-bottom: 15px; 
+    padding: 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    font-size: 16px; 
 `;
 
 // const StyledButton = styled.button`
@@ -46,7 +46,6 @@ const StyledButton = styled.button`
     border-radius: 10%;
     border: none;
     text-align: center;
-    /* align-items: center; */
 
     &:hover{
         background-color: #4338ca;
@@ -54,7 +53,6 @@ const StyledButton = styled.button`
 `;
 
 function Generating() {
-    // const [value, setValue] = useState("");
     const [OIB, setOIB] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -63,8 +61,6 @@ function Generating() {
     const [token, setToken] = useState(null);
 
     const location = useLocation();
-    // const token = location.state?.data;
-    // setToken(location.state?.data);
 
     useEffect(() => {
         if(location.state?.data) {
@@ -93,17 +89,6 @@ function Generating() {
         }
     }, [location.state]);
 
-//    useEffect(() => {
-//         // Provjerite je li token poslan u `state`
-//         if (location.state && location.state.data) {
-//             token = location.state.data;
-//             console.log("Token received:", token);
-//             // Nastavite s obradom tokena
-//         } else {
-//             console.log("Token not found, redirecting...");
-//         }
-//     }, [location]);
-
     async function handleSubmit(e) {
         e.preventDefault();
     
@@ -114,7 +99,7 @@ function Generating() {
         };
     
         try {
-            const response = await fetch("https://backend-tyyf.onrender.com/generate-new-user", {
+            const response = await fetch("https://backend-tyyf.onrender.com/generate-new-ticket", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -144,7 +129,6 @@ function Generating() {
             const result2 = await response2.json();
             setQrcodeUrl(result2.qrcodeUrl);
             setLink(result2.link);
-            // console.log(result2.qrcodeUrl);
     
         } catch (error) {
             console.error("Error:", error);
@@ -160,10 +144,6 @@ function Generating() {
                 <StyledInput type="text" name="Last name" value={lastName} placeholder="Last name" onChange={(e) => setLastName(e.target.value)}/>
                 <StyledButton type="submit">Generate QRcode</StyledButton>
             </StyledForm>
-            {/* {qrcodeUrl && (
-                <Link to={qrcodeUrl}>
-                    <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>
-                </Link>)} */}
             {qrcodeUrl && <img src={qrcodeUrl} alt="QR Code" style={{padding: "20px"}}/>}
             {link && <a href={link} style={{color: "black"}}>Personal info</a>}
         </StyledDiv>
