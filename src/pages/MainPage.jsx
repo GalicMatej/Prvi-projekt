@@ -69,7 +69,7 @@ function MainPage() {
                 
                 const result = await response.json();
                 setToken(result.access_token);
-                console.log(result.access_token)
+                // console.log(result.access_token)
             } catch (error) {
                 console.log("Error while fetching token!!!");
             }
@@ -100,7 +100,7 @@ function MainPage() {
                 const result = await response.json(); 
                 setNumber(result[0].count);
                 setLoading(false);
-                console.log(result)
+                // console.log(result)
 
             }
             catch (error) {
