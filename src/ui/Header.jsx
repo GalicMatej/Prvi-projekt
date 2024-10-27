@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const StyledHeader = styled.header`
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: lightblue;
     display: flex;
     align-items: center;
     justify-content: center;
