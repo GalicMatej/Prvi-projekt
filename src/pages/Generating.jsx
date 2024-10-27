@@ -43,13 +43,38 @@ function Generating() {
     const [lastName, setLastName] = useState('');
     const [qrcodeUrl, setQrcodeUrl] = useState("");
     const [link, setLink] = useState(null);
-    // const [token, setToken] = useState("");
+    const [token, setToken] = useState(null);
 
     const location = useLocation();
-    const token = location.state?.data;
+    // const token = location.state?.data;
+    setToken(location.state?.data);
 
     if(!token) {
-        console.log("Tokena nema!!!")
+        useEffect(() => {
+            const fetchToken = async () => {
+                try {
+                    const response = await fetch("https://backend-tyyf.onrender.com/get-token", {
+                        method: "GET",
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    // const fetchedToken = await getToken();
+                    // console.log(fetchedToken);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    setToken(result.access_token);
+                    // console.log(result.access_token)
+                } catch (error) {
+                    console.log("Error while fetching token!!!");
+                }
+            }
+            fetchToken();
+        }, []);
     }
 
 //    useEffect(() => {
