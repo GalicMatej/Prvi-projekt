@@ -46,7 +46,11 @@ function Generating() {
     // const [token, setToken] = useState("");
 
     const location = useLocation();
-    const token = location.state.data;
+    const token = location.state?.data;
+
+    if(!token) {
+        console.log("Tokena nema!!!")
+    }
 
 //    useEffect(() => {
 //         // Provjerite je li token poslan u `state`
