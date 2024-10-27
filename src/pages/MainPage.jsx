@@ -11,7 +11,6 @@ const StyledDiv = styled.div`
     flex-direction: column;
     height: 150px;
     gap: 20px;
-    
 `;
 
 const Styledh1 = styled.h1`
@@ -23,7 +22,8 @@ const Styledh1 = styled.h1`
 
 const StyledButton = styled.button`
     color: white;
-    background-color: #312e81;
+    /* background-color: #312e81; */
+    background-color: lightblue;
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
     border-radius: 15%;

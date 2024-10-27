@@ -7,7 +7,8 @@ const StyledDiv = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: lightblue;
     height: 470px;
     margin: 50px;
 `;

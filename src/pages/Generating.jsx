@@ -7,7 +7,8 @@ const StyledDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
+    background-color: lightblue;
     height: 580px;
     /* width: 300px; */
     border-radius: 10px;
