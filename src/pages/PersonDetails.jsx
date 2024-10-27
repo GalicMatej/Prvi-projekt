@@ -9,7 +9,7 @@ const StyledDiv = styled.div`
     flex-direction: column;
     /* background-color: blue; */
     background-color: lightblue;
-    height: 470px;
+    height: 490px;
     margin: 50px;
 `;
 
