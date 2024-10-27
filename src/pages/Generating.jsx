@@ -27,15 +27,31 @@ const StyledInput = styled.input`
     font-size: 16px; /* Font size for input text */
 `;
 
-const StyledButton = styled.button`
-    background-color: purple;
-    border: none;
-    border-radius: 10%;
-    font-size: 1.5rem;
-    /* padding: 1rem 1.5rem; */
-    text-align: center;
-`;
+// const StyledButton = styled.button`
+//     background-color: purple;
+//     border: none;
+//     border-radius: 10%;
+//     font-size: 1.5rem;
+//     /* padding: 1rem 1.5rem; */
+//     text-align: center;
+// `;
 
+
+const StyledButton = styled.button`
+    color: white;
+    /* background-color: #312e81; */
+    background-color: purple;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 10%;
+    border: none;
+    text-align: center;
+    /* align-items: center; */
+
+    &:hover{
+        background-color: #4338ca;
+    }
+`;
 
 function Generating() {
     // const [value, setValue] = useState("");
